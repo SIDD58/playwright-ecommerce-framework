@@ -1,0 +1,45 @@
+
+# node modules
+node_modules/
+
+# Playwright outputs
+test-results/
+playwright-report/
+blob-report/
+# custom created folder
+reports/
+
+# playwright cache
+/playwright/.cache/
+
+# authentication storage 
+playwright/.auth/
+#custom created file
+storageState.json
+
+
+
+#general gitignore files
+
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+# environment variables
+.env
+
+# logs
+*.log
+
+# coverage
+coverage/
+
+# IDE
+.vscode/
+.idea/
+
+# build artifacts
+dist/
+build/
