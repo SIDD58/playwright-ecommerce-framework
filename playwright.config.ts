@@ -1,16 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
   testDir: './tests',
   retries:1,
@@ -23,22 +11,32 @@ export default defineConfig({
     trace:'retain-on-failure'
   },
   projects:[
+    {
+      name:'setup',
+      testMatch:/auth\.setup\.ts/
+    },
     {name:'chromium',
       use:{
-        browserName:'chromium'
+        browserName:'chromium',
+        storageState:'playwright/.auth/user.json'
       },
+      dependencies:['setup']
     },
     {
       name:'firefox',
       use:{
-        browserName:'firefox'
-      }
+        browserName:'firefox',
+        storageState:'playwright/.auth/user.json'
+      },
+      dependencies:['setup']
     },
     {
       name:'webkit',
       use:{
-        browserName:'webkit'
-      }
+        browserName:'webkit',
+        storageState:'playwright/.auth/user.json'
+      },
+      dependencies:['setup']
     }
   ]
 });
