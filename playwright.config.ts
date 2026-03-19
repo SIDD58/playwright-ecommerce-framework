@@ -18,7 +18,8 @@ export default defineConfig({
     {name:'chromium',
       use:{
         browserName:'chromium',
-        storageState:'playwright/.auth/user.json'
+        storageState:'playwright/.auth/user.json',
+        testIdAttribute: 'data-test'
       },
       dependencies:['setup']
     },
