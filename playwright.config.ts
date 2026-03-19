@@ -22,21 +22,21 @@ export default defineConfig({
       },
       dependencies:['setup']
     },
-    {
-      name:'firefox',
-      use:{
-        browserName:'firefox',
-        storageState:'playwright/.auth/user.json'
-      },
-      dependencies:['setup']
-    },
-    {
-      name:'webkit',
-      use:{
-        browserName:'webkit',
-        storageState:'playwright/.auth/user.json'
-      },
-      dependencies:['setup']
-    }
+    // {
+    //   name:'firefox',
+    //   use:{
+    //     browserName:'firefox',
+    //     storageState:'playwright/.auth/user.json'
+    //   },
+    //   dependencies:['setup']
+    // },
+    // {
+    //   name:'webkit',
+    //   use:{
+    //     browserName:'webkit',
+    //     storageState:'playwright/.auth/user.json'
+    //   },
+    //   dependencies:['setup']
+    // }
   ]
 });

@@ -1,9 +1,11 @@
-import {expect,test} from "@playwright/test"
+// import {expect,test} from "@playwright/test"
+import {expect,test} from "../fixtures/test-fixtures"
 //import { LoginPage } from "../pages/LoginPage"
 
 
-test('inventory visible',async ({page})=>{
+test('inventory visible',async ({page,testfix})=>{
     await page.goto('/inventory.html')
+    console.log(testfix)
     const inventory_list=page.locator('.inventory_list')
     await expect(inventory_list).toBeVisible()
 })
