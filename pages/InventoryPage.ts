@@ -1,8 +1,12 @@
-import {test,expect,type Page} from '@playwright/test'
+import {test,expect,type Page, type Locator} from '@playwright/test'
 
 
 export class InventoryPage{
-    constructor(private page:Page){}
+    public inventoryList:Locator;
+
+    constructor(private page:Page){
+        this.inventoryList = page.locator('.inventory_list');
+    }
 
     async goto()
     {
@@ -15,7 +19,7 @@ export class InventoryPage{
     {
         // I find the parent element (which has both button element and also element that contains text)
         // Then I fiter out one which contains that test , afterwards I locate the button 
-        // I would need a generic selector , I thought CSS generic lcass .btn_inventory would be a good choice 
+        // I would need a generic selector , I thought CSS generic class .btn_inventory would be a good choice 
         
         // const add_to_cart_button=this.page.getByTestId('inventory-item-description').filter({hasText:'Sauce Labs Backpack'}).filter({has:this.page.locator('.btn_inventory')})
         // add_to_cart_button.click()

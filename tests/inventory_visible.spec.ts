@@ -3,11 +3,11 @@ import {expect,test} from "../fixtures/test-fixtures"
 //import { LoginPage } from "../pages/LoginPage"
 
 
-test('inventory visible',async ({page,testfix})=>{
-    await page.goto('/inventory.html')
-    console.log(testfix)
-    const inventory_list=page.locator('.inventory_list')
-    await expect(inventory_list).toBeVisible()
+test('inventory visible',async ({inventoryPage,page})=>{
+    // await page.goto('/inventory.html')
+    // const inventory_list=page.locator('.inventory_list')
+    // await expect(inventory_list).toBeVisible()
+    await expect(inventoryPage.inventoryList).toBeVisible()
 })
 
 // test('login',async ({page})=>{
@@ -16,3 +16,4 @@ test('inventory visible',async ({page,testfix})=>{
 //     await login_page.login('standard_user','secret_sauce')
 //     expect(page).toHaveURL(/inventory/)
 // })
+
