@@ -32,8 +32,12 @@ export class InventoryPage{
         // we add filters for filtering (narrow down options) and for drilling (going inside element) we use locators chaining
         // hence below code line only selects div element 
         // const add_to_cart_button=this.page.getByTestId('inventory-item-description').filter({hasText:'Sauce Labs Backpack'}).filter({has:this.page.getByRole("button")})
-        const add_to_cart_button=this.page.getByTestId('inventory-item-description').filter({hasText:'Sauce Labs Backpack'}).getByRole("button");
+
         
+        const add_to_cart_button=this.page.getByTestId('inventory-item-description').filter({hasText:'Sauce Labs Backpack'}).getByRole("button");
+  
+        // const add_to_cart_button=this.page.locator('[data-test="inventory-item-description"]').filter({ hasText: 'Sauce Labs Backpack' }).getByRole('button')
+        await add_to_cart_button.waitFor({ state: 'visible' });
         await add_to_cart_button.click()
 
         // // Way I thought was that all test id are named in this specific way 
