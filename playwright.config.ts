@@ -31,13 +31,13 @@ export default defineConfig({
     //   },
     //   dependencies:['setup']
     // },
-    // {
-    //   name:'webkit',
-    //   use:{
-    //     browserName:'webkit',
-    //     storageState:'playwright/.auth/user.json'
-    //   },
-    //   dependencies:['setup']
-    // }
+    {
+      name:'webkit',
+      use:{
+        browserName:'webkit',
+        storageState:'playwright/.auth/user.json'
+      },
+      dependencies:['setup']
+    }
   ]
 });
