@@ -3,7 +3,7 @@ import {expect,test} from "../fixtures/test-fixtures"
 //import { LoginPage } from "../pages/LoginPage"
 
 
-test('inventory visible',async ({inventoryPage,page})=>{
+test('inventory visible',{tag:['@smoke','@ui']},async ({inventoryPage,page})=>{
     await inventoryPage.add_to_cart("hello")
     await inventoryPage.open_cart()
     // instead of cart item , it changes its URL 
