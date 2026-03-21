@@ -3,8 +3,9 @@ import {InventoryPage} from '../pages/InventoryPage'
 import {LoginPage} from '../pages/LoginPage'
 
 type Myfixture={
-    'loginPage':any,
-    'inventoryPage':any
+    'loginPage':LoginPage,
+    'inventoryPage':InventoryPage,
+    'noImage':boolean
 }
 
 export const test=base.extend<Myfixture>({
@@ -12,12 +13,24 @@ export const test=base.extend<Myfixture>({
         const login_page=new LoginPage(page)
         await use(login_page)
     },
-    'inventoryPage':async ({page},use)=>{
+    'noImage':[false,{option:true}],
+    'inventoryPage':async ({page,noImage},use)=>{
         const inventory_page=new InventoryPage(page)
         console.log("Inventory page fixture called")
+        // Conditional interception code
+        if(noImage)
+        {
+            await page.route(
+            /(png|jpeg|jpg)$/,(route)=>{
+                route.abort('failed')
+            }
+        )
+        }
         await inventory_page.goto()
+        /////
         await use(inventory_page)
     }
+
 
 })
 
