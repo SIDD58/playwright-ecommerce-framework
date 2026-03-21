@@ -15,3 +15,9 @@ npx playwright codegen
 npx playwright --help
 npx playwright test --help 
 
+## Note 
+We have shown concepts of network intreception on frontend UI just for learning purpose 
+As https://www.saucedemo.com/ is not calling any backend API 
+
+However it needs to be streesed out interception is majorly used with backend API or other resources that network requests
+

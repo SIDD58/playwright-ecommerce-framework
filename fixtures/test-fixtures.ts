@@ -1,11 +1,13 @@
 import {test as base,expect,Page} from '@playwright/test'
 import {InventoryPage} from '../pages/InventoryPage'
 import {LoginPage} from '../pages/LoginPage'
+import {mockBlock, mockServerError, mockSuccessful} from '../utils/apiMocks'
 
 type Myfixture={
     'loginPage':LoginPage,
     'inventoryPage':InventoryPage,
-    'noImage':boolean
+    'noImage':boolean,
+    'status': 'block'|'server-failure'|'success'|'normal'
 }
 
 export const test=base.extend<Myfixture>({
@@ -14,9 +16,28 @@ export const test=base.extend<Myfixture>({
         await use(login_page)
     },
     'noImage':[false,{option:true}],
-    'inventoryPage':async ({page,noImage},use)=>{
+    'status':['normal',{option:true}],
+    'inventoryPage':async ({page,noImage,status},use)=>{
         const inventory_page=new InventoryPage(page)
         console.log("Inventory page fixture called")
+        // mock code based on condtion 
+        if(status == 'success')
+        {
+            console.log("Success")
+            await mockSuccessful(page)
+            console.log("Success Complete")
+        }
+        else if(status=='server-failure')
+        {
+            await mockServerError(page)
+
+        }
+        else if(status=='block')
+        {
+            await mockBlock(page)
+
+        }
+
         // Conditional interception code
         if(noImage)
         {
@@ -27,7 +48,6 @@ export const test=base.extend<Myfixture>({
         )
         }
         await inventory_page.goto()
-        /////
         await use(inventory_page)
     }
 
