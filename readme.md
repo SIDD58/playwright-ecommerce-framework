@@ -1,3 +1,26 @@
+## installing playwright and typescript
+npm init playwright@latest
+npm install --save-dev typescript
+After that intialize typescript that is tsconfig.json
+npx tsc --init
+
+
+## package.json
+Add line "type": "module",
+This is for modern module syntax like import and export instead of commmonjs module  
+
+## tsconfig.json
+"types": ["node"],
+This tells the compiler to include the type definitions for the Node.js runtime environment
+
+"exactOptionalPropertyTypes": false,
+When enabled, it prevents developers from assigning undefined to an optional property, requiring it to be either absent or present with a valid value
+
+## .env file 
+Add CI environment variable to false for now 
+npx playwright install 
+// This installs browser binaries
+
 ## Common Commands
 npx playwright test 
 Options used 
