@@ -1,4 +1,4 @@
-import {test as base,expect,Page} from '@playwright/test'
+import {test as base,expect,type Page} from '@playwright/test'
 import {InventoryPage} from '../pages/InventoryPage'
 import {LoginPage} from '../pages/LoginPage'
 import {mockBlock, mockServerError, mockSuccessful} from '../utils/apiMocks'

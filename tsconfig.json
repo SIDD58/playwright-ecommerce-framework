@@ -7,12 +7,18 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
+    // configuration means module resolution and emitting of js file in memory handled by palywright
+    // type script is only for type cehcking here 
+    // module also needs to be esnext for that purpose 
     "module": "esnext",
     "target": "esnext",
     "noEmit": true,
     "moduleResolution": "bundler",
+    // to resolve json modules , we have to set it here in tsconfig file 
+    "resolveJsonModule": true,
     // "types": [],
     // For nodejs:
+    // these is to inlcude our node type defintion and esnext style javascript to type checking 
     "lib": ["esnext"],
     "types": ["node"],
     // and npm install -D @types/node

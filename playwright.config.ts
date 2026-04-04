@@ -14,24 +14,67 @@ export default defineConfig({
     {
       name:'setup',
       testMatch:/auth\.setup\.ts/
+      // testMatch:/auth\.spec\.ts/
     },
-    {name:'chromium',
+    {name:'standard-user',
       use:{
         browserName:'chromium',
-        storageState:'playwright/.auth/user.json',
+        storageState:'playwright/.auth/standard_user.json',
         testIdAttribute: 'data-test'
       },
       dependencies:['setup']
     },
-    {
-      name:'webkit',
+    {name:'erorr-user',
       use:{
-        browserName:'webkit',
-        storageState:'playwright/.auth/user.json',
+        browserName:'chromium',
+        storageState:'playwright/.auth/error_user.json',
         testIdAttribute: 'data-test'
       },
       dependencies:['setup']
-    }
+    },
+    {name:'problem-user',
+      use:{
+        browserName:'chromium',
+        storageState:'playwright/.auth/problem_user.json',
+        testIdAttribute: 'data-test'
+      },
+      dependencies:['setup']
+    },    
+    // {name:'performance-user',
+    //   use:{
+    //     browserName:'chromium',
+    //     storageState:'playwright/.auth/performance_glitch_user.json',
+    //     testIdAttribute: 'data-test'
+    //   },
+    //   dependencies:['setup']
+    // },
+    // {name:'visual-user',
+    //   use:{
+    //     browserName:'chromium',
+    //     storageState:'playwright/.auth/visual_user.json',
+    //     testIdAttribute: 'data-test'
+    //   },
+    //   dependencies:['setup']
+    // },
+
+
+    // {name:'chromium',
+    //   use:{
+    //     browserName:'chromium',
+    //     storageState:'playwright/.auth/user.json',
+    //     testIdAttribute: 'data-test'
+    //   },
+    //   dependencies:['setup']
+    // },
+    // {
+    //   name:'webkit',
+    //   use:{
+    //     browserName:'webkit',
+    //     storageState:'playwright/.auth/user.json',
+    //     testIdAttribute: 'data-test'
+    //   },
+    //   dependencies:['setup']
+    // }
     // {
     //   name:'firefox',
     //   use:{
